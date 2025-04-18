@@ -3,16 +3,20 @@
 
 
 def pascal_triangle(n):
-    """Function that returns a list of integers"""
-    triangle = [] # initialize an empty triangle
-
     if n <= 0:
-        return triangle
-
+        return []
+    
+    triangle = []
+    
     for i in range(n):
-        row = [1] * (i + 1) # start each row with 1
-        for j in range(1, i):
-            # Fill in the inner values
-            row[j] = triangle[i - 1] + triangle[i - 1][j]
+        # Start a new row with 1
+        row = [1]
+        if triangle:
+            last_row = triangle[-1]
+            # Build the middle values of the row
+            for j in range(1, len(last_row)):
+                row.append(last_row[j - 1] + last_row[j])
+            row.append(1)  # End the row with 1
         triangle.append(row)
+    
     return triangle
