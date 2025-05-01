@@ -2,7 +2,7 @@
 """Minimum operations"""
 
 
-def minOpereations(n):
+def minOperations(n):
     """
     Script that only does two commands: copy all and paste all
     args:
