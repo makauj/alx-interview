@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-a program that solves the N queens problem.
+A program that solves the N queens problem.
 The N queens puzzle is the problem of placing N chess queens on an N×N
 chessboard so that no two queens threaten each other.
 """
@@ -42,26 +42,21 @@ def is_safe(board, row, col):
     return True
 
 
-def main():
-    """
-    Main function to parse arguments and initiate N queens solution generation
-    """
+def n_queens():
+    """Main entry point for the N queens problem solver."""
     if len(sys.argv) != 2:
         print_usage_and_exit()
+
     try:
         n = int(sys.argv[1])
     except ValueError:
         print("N must be a number")
         sys.exit(1)
+
     if n < 4:
         print("N must be at least 4")
         sys.exit(1)
-    return n
 
-
-def n_queens():
-    """ Main entry point for the N queens problem solver. """
-    n = main()
     solutions = generate_solutions(n)
     for solution in solutions:
         print([[i, solution[i]] for i in range(n)])
