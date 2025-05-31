@@ -6,11 +6,11 @@ const request = require('request');
 const movieId = process.argv[2];
 const mEndPoint = 'https://swapi-api.alx-tools.com/api/films/' + movieId;
 
-function getRequest(characterList, index) {
+function getRequest (characterList, index) {
   if (index >= characterList.length) {
     return;
   }
-  
+
   request(characterList[index], (error, response, body) => {
     if (!error && response.statusCode === 200) {
       const character = JSON.parse(body);
